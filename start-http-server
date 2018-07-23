@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+echo "Starting web server, access it through http://localhost:8080, kill it with the command 'docker kill web-test'"
+docker run --name web-test --rm  -p 8080:8000 crccheck/hello-world

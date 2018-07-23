@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+if [ "$1" == "start" ]; then
+    echo "Starting services"
+else
+    echo "$1 command not supported"
+fi
