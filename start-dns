@@ -5,4 +5,4 @@ IFS=$'\n\t'
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 "${DIR}/build-dns-image"
-docker run -t --rm --name dns demo/dns:0.1
+docker run -p 53:53/udp -p 53:53/tcp -t --rm --name dns demo/dns:0.1

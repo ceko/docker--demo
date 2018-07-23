@@ -1,12 +1,13 @@
 #!/bin/bash
-#set -euo pipefail
+set -euo pipefail
 #IFS=$'\n\t'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 if [ "$1" == "start" ]; then
-    unbound-anchor -v
-    exec unbound -v
+    unbound-anchor -v -a /etc/unbound/root.key || true
+    chown -R unbound /etc/unbound
+    unbound -v
 else
     echo "$1 command not supported"
 fi
